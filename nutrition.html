@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Nutrition Centers</title>
+    <link rel="stylesheet" href="physiotherapy.css">
+    <link rel="icon" href="data:;base64,=">
+    <style>
+         .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px; /* Adjust height if needed */
+            background: #F5347F;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1000;
+            border-radius: 0;
+            margin-bottom: 0;
+            padding-bottom: 10px;
+        }
+        
+        .nearby-btn {
+            margin-top: 120px; /* Adjust based on your header height */
+            padding: 20px;
+            background-color: pink;
+            color: black;
+            
+        }
+
+
+        .nearby-btn:hover{
+            font-size: 18px;
+            background: #F5347F;
+            color: white;
+
+
+        }
+
+        .hidden { display: none; } /* Ensuring hidden class works */
+        
+        .service-card { 
+            border: 1px solid #ddd; 
+            padding: 1px; 
+            margin-top: 20px; /* Adds space between cards */
+        }
+        
+        #booking-form {
+            display: none; /* Ensure it's hidden initially */
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-top: 40px;
+            background: #f9f9f9;
+        }
+
+        #booking-form button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Nearby Nutrition Centers</h1>
+    </div>
+    
+    <button class="nearby-btn" onclick="showNearbyPlaces()">Find Nearby Nutrition Centers</button>
+    
+    <div class="services-container" id="services-list">
+        <p>Click the button to find services near you.</p>
+    </div>
+
+    <!-- Booking Form -->
+    <div id="booking-form">
+        <h2>Book an Appointment</h2>
+        <p id="selected-clinic"></p>
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" required>
+
+        <button onclick="proceedToPayment()">Proceed to Pay</button>
+    </div>
+
+    <script>
+        let selectedClinic = null;
+
+        function initMap() {
+            console.log("Google Maps API Loaded Successfully.");
+        }
+
+        function showNearbyPlaces() {
+            if (!navigator.geolocation) {
+                alert("Geolocation is not supported by this browser.");
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    let latitude = position.coords.latitude;
+                    let longitude = position.coords.longitude;
+                    let userLocation = new google.maps.LatLng(latitude, longitude);
+
+                    console.log("User Location:", latitude, longitude);
+
+                    let request = {
+                        location: userLocation,
+                        radius: 5000, 
+                        type: "gym",  // Searching for fitness or health-related places
+                        keyword: "nutrition"
+                    };
+
+                    let service = new google.maps.places.PlacesService(document.createElement('div'));
+                    service.nearbySearch(request, function (results, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            displayClinics(results);
+                        } else {
+                            console.error("Nearby Search Failed:", status);
+                            alert("Error fetching nearby nutrition centers.");
+                        }
+                    });
+                },
+                function (error) {
+                    console.error("Geolocation Error:", error);
+                    alert("Failed to get location. Please enable GPS.");
+                }
+            );
+        }
+
+        function displayClinics(centers) {
+            let servicesList = document.getElementById("services-list");
+            servicesList.innerHTML = ""; 
+
+            if (!centers.length) {
+                servicesList.innerHTML = "<p>No nearby nutrition centers found.</p>";
+                return;
+            }
+
+            centers.forEach(center => {
+                let centerCard = document.createElement("div");
+                centerCard.classList.add("service-card");
+
+                centerCard.innerHTML = `
+                    <h3>${center.name}</h3>
+                    <p>${center.vicinity || "Location not available"}</p>
+                    <button onclick="openBookingForm('${center.name}')">Book Appointment</button>
+                `;
+
+                servicesList.appendChild(centerCard);
+            });
+        }
+
+        function openBookingForm(centerName) {
+            selectedClinic = centerName;
+
+            // ✅ Update Center Name in the Form
+            document.getElementById("selected-clinic").innerText = `Booking for: ${centerName}`;
+
+            // ✅ Move Booking Form to Top (After Header)
+            let header = document.querySelector(".header");
+            let bookingForm = document.getElementById("booking-form");
+
+            // Move the form after the header
+            header.insertAdjacentElement("afterend", bookingForm);
+
+            // ✅ Make the Form Visible
+            bookingForm.classList.remove("hidden");
+            bookingForm.style.display = "block"; // Ensure it's visible
+        }
+
+        function proceedToPayment() {
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+
+            if (!date || !time) {
+                alert("Please select a date and time.");
+                return;
+            }
+
+            let options = {
+                "key": "rzp_test_DziyEguOdZPEa5",
+                "amount": 50000,
+                "currency": "INR",
+                "name": selectedClinic,
+                "description": "Nutrition Consultation",
+                "handler": function (response) {
+                    alert("Payment Successful! Your appointment is confirmed.");
+                    document.getElementById("booking-form").style.display = "none";
+                },
+                "theme": {
+                    "color": "#ff6699"
+                }
+            };
+
+            let rzp1 = new Razorpay(options);
+            
+            // ✅ Open in a new tab to avoid browser restrictions
+            setTimeout(() => {
+                rzp1.open();
+            }, 1000);
+        }
+    </script>
+
+    <script 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzixgJ_YhRATwJaWW7PbhLXVCW_BdxQQw&libraries=places&callback=initMap"
+        async defer>
+    </script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</body>
+</html>

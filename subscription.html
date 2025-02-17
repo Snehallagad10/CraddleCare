@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Services</title>
+    <link rel="stylesheet" href="subscription.css">
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+
+    <div class="header">
+        <h1 >Pregnancy Care Services</h1>
+    </div>
+
+    <div class="services-container">
+        
+        <!-- Physiotherapy Card -->
+        <div class="service-card" onclick="openService('physiotherapy.html')">
+            <ion-icon name="body" class="service-icon"></ion-icon>
+            <h3>Physiotherapy</h3>
+            <p>Relieve pain & improve mobility during pregnancy.</p>
+        </div>
+
+        <!-- Gynecology Card -->
+        <div class="service-card" onclick="openService('gynecology.html')">
+            <ion-icon name="medkit" class="service-icon"></ion-icon>
+            <h3>Gynecology</h3>
+            <p>Expert consultation & health checkups.</p>
+        </div>
+
+        <!-- Nutrition Card -->
+        <div class="service-card" onclick="openService('nutrition.html')">
+            <ion-icon name="nutrition" class="service-icon"></ion-icon>
+            <h3>Nutrition</h3>
+            <p>Diet plans for a healthy pregnancy.</p>
+        </div>
+
+        <!-- Yoga & Wellness Card -->
+        <div class="service-card" onclick="openService('yoga.html')">
+            <ion-icon name="leaf" class="service-icon"></ion-icon>
+            <h3>Yoga & Wellness</h3>
+            <p>Stay fit & relaxed with prenatal yoga.</p>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        function openService(page) {
+            window.location.href = page; // Navigate to the respective service page
+        }
+    </script>
+ 
+    <!-- Navigation Bar -->
+    <div class="button-container">
+        <a href="1page.html">
+            <button class="button">
+                <ion-icon name="home-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="services.html">
+            <button class="button">
+                <ion-icon name="medkit-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="shopping.html">
+            <button class="button">
+                <ion-icon name="cart-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="last.html">
+            <button class="button">
+                <ion-icon name="person-outline"></ion-icon>
+            </button>
+        </a>
+    </div>
+    
+<!-- Load Ionicons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons.js"></script>
+
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+.container {
+    width: 302px;
+    height: 175px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+ #number , #Verificationcode {
+    width: calc(100%-24px);
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    outline: none;
+ }
+#Recaptcha-container{
+    margin-bottom: 5px;
+    color: black;
+    background-color: white;
+}
+
+ #send,#verify {
+    width: 100%;
+    height: 40px;
+    outline: none;
+ }
+ 
+ .p-conf , .n-conf {
+    width: calc(100%-22px);
+    border: 2px solid green;
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin: 4px 0px;
+    background-color: white;
+    display: none;
+ }
+
+ .p-conf:hover{
+    background-color: green;
+    color: #fff;
+ }
+
+.n-conf {
+    border-color: red;
+    background-color: white;
+ }
+
+ .n-conf:hover {
+    background-color: red;
+    color: #fff;
+ }

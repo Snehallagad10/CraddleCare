@@ -1,0 +1,60 @@
+/* Resetting default margins and paddings */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure full-screen height */
+    box-sizing: border-box;
+    background-color: #fff; /* Optional background color */
+}
+
+/* Logo container with center alignment */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo image styling */
+.logo {
+    width: 200px; /* Adjust size for larger image */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 90%; /* Prevent overflow */
+}
+
+/* Text styling */
+.text {
+    text-align: center; /* Center-align text */
+}
+
+.text h2 {
+    font-size: 24px; /* Increase text size */
+    color: #ed64bf;
+   
+}
+
+/* Responsiveness for different screen sizes */
+@media (max-width: 768px) {
+    .text h2 {
+        font-size: 2rem; /* Adjust text size for tablets */
+    }
+
+    .logo {
+        width: 150px; /* Adjust logo size for smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .text h2 {
+        font-size: 1.8rem; /* Adjust text size for phones */
+    }
+
+    .logo {
+        width: 120px; /* Adjust logo size for smaller devices */
+    }
+}

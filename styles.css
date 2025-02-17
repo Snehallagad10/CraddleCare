@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: white;
+    text-align: center;
+  }
+  
+  .profile-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    color: black;
+    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header {
+    background:  rgb(233, 97, 142);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .profile-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    margin: 5px 0;
+  }
+  
+  .profile-info {
+    font-size: 14px;
+  }
+  
+  .profile-points {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  
+  .profile-section h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+  }
+  
+  .profile-list {
+    list-style-type: none;
+    padding: 0;
+     
+  }
+  /* Ensure the list takes the full width */
+.profile-section ul {
+  display: block;
+  list-style-type: none;  /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  width: 100%;  /* Make sure the list takes full width */
+}
+
+/* Ensure each list item appears on a separate row */
+.profile-section ul li {
+  display: block;  /* Forces each item onto a new line */
+  padding: 12px 15px;  /* Adds spacing inside each item */
+  border-bottom: 1px solid #ddd; /* Adds a separator line between items */
+  font-size: 16px;
+}
+
+/* Ensure each section is properly spaced */
+.profile-section {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;  /* Adds spacing between sections */
+  padding: 10px;
+  background: #f9f9f9; /* Optional: Light background for better visibility */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+}
+
+  .profile-list li {
+    display: block;  /* Makes each item appear below the previous one */
+    padding: 10px 10; /* Adds spacing between list items */
+    margin: 10px;
+    border-bottom: 1px solid #ddd; /* Optional: Adds a light separator */
+  }
+  
+  .profile-list li:hover {
+    background: #f4f4f4;
+  }
+
+  .nav .list:hover {
+    background: none;  /* Prevents hover color change */
+  }
+  
+  /* Active State for Navbar */
+  .nav .list.active .icon {
+    color: red;  /* Only highlight when clicked */
+  }
+  
+  .logout-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    margin: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .logout-btn:hover {
+    background: #cc0000;
+  }
+  
+
+
+
+
+
+/* Navigation Container */
+.nav-container {
+  position: fixed; /* Keep it fixed at bottom */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Center it */
+  width: 90%; /* Adjust width */
+  max-width: 350px; /* Prevent excessive stretching */
+  height: 60px;
+  background-color: rgb(241, 76, 145); /* Change as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Button container inside navigation */
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Buttons */
+.button {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white; /* Icon color */
+  transition: transform 0.2s ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}

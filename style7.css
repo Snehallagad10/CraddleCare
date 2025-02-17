@@ -1,0 +1,70 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Adjust as needed */
+    overflow: hidden; /* Prevents image overflow */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.countdown-card, .kyc-card, .prime-card, .insights-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-display {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.kyc-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prime-card {
+    display: flex;
+    flex-direction: column; /* Stack content and image */
+}
+
+.prime-content {
+    margin-bottom: 15px; /* Space between content and image */
+}
+
+.prime-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.insights-content {
+    text-align: center;
+}
+
+/* Add more specific styles as needed */

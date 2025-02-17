@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        input, select {
+            width: 94%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>KYC Verification</h2>
+
+        <label for="docType">Select Document Type:</label>
+        <select id="docType" onchange="clearDocNumber()">
+            <option value="">--Select--</option>
+            <option value="pan">PAN Card</option>
+            <option value="aadhaar">Aadhaar Card</option>
+        </select>
+        
+        <input type="text" id="docNumber" placeholder="Enter Document Number" required>
+        <input type="text" id="name" placeholder="Enter Full Name" required>
+        <input type="date" id="dob" required>
+        <input type="text" id="address" placeholder="Enter Address" required>
+        <input type="text" id="pincode" placeholder="Enter Pincode" required>
+
+        <button onclick="submitKYC()">Verify KYC</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function clearDocNumber() {
+            document.getElementById("docNumber").value = "";
+        }
+        
+        function submitKYC() {
+            let docType = document.getElementById("docType").value;
+            let docNumber = document.getElementById("docNumber").value;
+            let name = document.getElementById("name").value;
+            let dob = document.getElementById("dob").value;
+            let address = document.getElementById("address").value;
+            let pincode = document.getElementById("pincode").value;
+
+            if (!docType || !docNumber || !name || !dob || !address || !pincode) {
+                document.getElementById("message").innerHTML = "Please fill all fields correctly.";
+                document.getElementById("message").style.color = "red";
+                return;
+            }
+
+            // Store KYC data in local storage (optional)
+            let kycData = { docType, docNumber, name, dob, address, pincode };
+            localStorage.setItem("kycData", JSON.stringify(kycData));
+
+            document.getElementById("message").innerHTML = "KYC Verified Successfully!";
+            document.getElementById("message").style.color = "green";
+
+            // Redirect to last.html after 2 seconds
+            setTimeout(() => {
+                window.location.href = "last.html";
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>

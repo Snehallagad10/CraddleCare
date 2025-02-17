@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cradle Care - User Details</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            height: 90%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Adjust as needed */
+        }
+
+        .form-group { /* New class for form groups */
+            margin-bottom: 20px; /* Consistent spacing */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="date"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px; /* Increased padding */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px; /* Improved font size */
+        }
+
+        .btn {
+            background-color: #FF0A54;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #FF69B4;
+        }
+
+        /* Responsive adjustments (optional) */
+        @media (max-width: 450px) {
+            .container {
+                width: 90%; /* Adjust container width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Complete Your Profile</h2>
+        <form id="user-info-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+
+            <label for="dob">Pregnancy Start Date (LMP)</label>
+            <input type="date" id="dob" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" required>
+
+            <label for="pincode">Pincode</label>
+            <input type="text" id="pincode" required>
+
+            <label for="blood-group">Blood Group</label>
+            <select id="blood-group" required>
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+
+            <button type="submit" class="btn">Next</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('user-info-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const address = document.getElementById('address').value;
+            const pincode = document.getElementById('pincode').value;
+            const bloodGroup = document.getElementById('blood-group').value;
+    
+            // Save user details in localStorage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userLMP', dob);
+            localStorage.setItem('userAddress', address);
+            localStorage.setItem('userPincode', pincode);
+            localStorage.setItem('userBloodGroup', bloodGroup);
+    
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.textContent = 'Details saved successfully! Redirecting...';
+            successMessage.style.padding = '15px';
+            successMessage.style.marginTop = '20px';
+            successMessage.style.backgroundColor = '#28a745';
+            successMessage.style.color = 'white';
+            successMessage.style.borderRadius = '5px';
+            successMessage.style.textAlign = 'center';
+            document.body.appendChild(successMessage);
+    
+            // Redirect to 1page.html after a delay
+            setTimeout(function() {
+                window.location.href = '1page.html';
+            }, 2000); // Wait for 2 seconds before redirecting
+        });
+    </script>
+    
+</body>
+</html>
+]

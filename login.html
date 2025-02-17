@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Sign-Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import Firebase SDKs
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBo2ElOyNrTC6yRtMnj8UzDfezUKZTv2Ok",
+        authDomain: "craddlecare-b2c0d.firebaseapp.com",
+        databaseURL: "https://craddlecare-b2c0d-default-rtdb.firebaseio.com",
+        projectId: "craddlecare-b2c0d",
+        storageBucket: "craddlecare-b2c0d.appspot.com",  // ✅ FIXED
+        messagingSenderId: "381773040269",
+        appId: "1:381773040269:web:508f2b58e4971dc8ff30c4",
+        measurementId: "G-S2NW7DGK44"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Sign-up event listener
+      document.addEventListener("DOMContentLoaded", () => {
+        const signUpForm = document.getElementById("sign-up-form");
+
+        if (signUpForm) {
+            signUpForm.addEventListener("submit", (e) => {
+                e.preventDefault(); // Prevent page reload
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        console.log("User signed up:", user);
+                        alert("User created successfully!");
+                        // Redirect to another page
+                        window.location.href = "/User.html"; // Redirect to user details page
+                    })
+                    .catch((error) => {
+                        console.log(error.code, error.message);
+                        document.getElementById("error-message").innerText = error.message;
+                    });
+            });
+        }
+      });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="heading">Sign Up</div>
+        <form id="sign-up-form" class="form">
+            <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+            <input required class="input" type="password" name="password" id="password" placeholder="Password">
+            <span class="forgot-password"><a href="#">Forgot Password?</a></span>
+            <input class="login-button" type="submit" value="Sign Up">
+        </form>
+        
+        <!-- Error message container -->
+        <div id="error-message" style="color: red;"></div>
+    </div>
+</body>
+</html>

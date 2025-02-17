@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #0078D7;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  h2 {
+    color: #0078D7;
+  }
+  
+  #report-form, #reports {
+    margin: 1rem auto;
+    max-width: 600px;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    margin-top: 1rem;
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005BB5;
+  }
+  
+  #reportsContainer {
+    margin-top: 1rem;
+  }
+  .report {
+    background-color: #f9f9f9;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border-left: 4px solid #0078D7;
+    border-radius: 4px;
+  }
+  

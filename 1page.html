@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cradle Care</title>
+    <style>
+        /* Your existing styles here ... */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            background-color: beige;
+        }
+        /* Image Styles */
+        .week-image {
+            width: 280px; /* Set a fixed size */
+            height: 170px; /* Set the same height as width for a square shape */
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px; /* Optional: rounded corners */
+            object-fit: cover; /* Ensures the image fits inside the square without distortion */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Additional Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px; /* Adjust height if needed */
+            background: #F5347F;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1000;
+            border-radius: 0;
+        }
+
+        /* Push content below the fixed header */
+        .container {
+            margin-top: 60px; /* Adjust based on your header height */
+            padding: 20px;
+        }
+
+        .info-box {
+            width: 90%;
+            max-width: 600px;
+            background-color: #f96d8d;
+            color: b;
+            border: 2px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Buttons */
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #F5347F;
+            padding: 10px 0;
+            box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .button {
+            font-size: 24px;
+            color: rgb(221, 203, 203);
+            outline: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .button ion-icon {
+            font-size: 32px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Craddle Care</h1>
+    </div>
+
+    <div class="container">
+        <h2>Fetal Growth Tracker</h2>
+        <p><strong>Name:</strong> <span id="userName"></span></p>
+        <p><strong>Address:</strong> <span id="userAddress"></span></p>
+        <p><strong>Pincode:</strong> <span id="userPincode"></span></p>
+        <p><strong>Blood Group:</strong> <span id="userBloodGroup"></span></p>
+        <p class="week-info">Current Week: <span id="weekNumber">--</span></p>
+        <p class="description" id="fetalDescription">Loading...</p>
+
+        <!-- Display Image -->
+        <img id="weekImage" class="week-image" src="" alt="Fetal Growth Image">
+
+        <h3>Pre-Delivery Care</h3>
+        <div class="info-box">Motherhood Prime<br><small>Elevate your pregnancy experience with special care.</small></div>
+
+        <h3>Expert Tips</h3>
+        <div class="info-box">Nutritious Diet<br><small>Balanced diet rich in vitamins and minerals.</small></div>
+        <div class="info-box">Prenatal Vitamins<br><small>Ensure optimal nutrition as recommended by doctors.</small></div>
+        <div class="info-box">Regular Prenatal Visits<br><small>Monitor baby's growth with regular check-ups.</small></div>
+
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let userName = localStorage.getItem("userName");
+        let userLMP = localStorage.getItem("userLMP");
+        let userAddress = localStorage.getItem("userAddress");
+        let userPincode = localStorage.getItem("userPincode");
+        let userBloodGroup = localStorage.getItem("userBloodGroup");
+
+        if (!userLMP) {
+            alert("No pregnancy date found. Please enter it first.");
+            window.location.href = "userdetails.html";
+            return;
+        }
+
+        document.getElementById("userName").textContent = userName;
+        document.getElementById("userAddress").textContent = userAddress;
+        document.getElementById("userPincode").textContent = userPincode;
+        document.getElementById("userBloodGroup").textContent = userBloodGroup;
+
+        let lmp = new Date(userLMP);
+        let today = new Date();
+        let weeksPregnant = Math.floor((today - lmp) / (1000 * 60 * 60 * 24 * 7));
+
+        // Available fetal growth weeks (sorted)
+        const availableWeeks = [4, 8, 16, 20, 24, 28, 32, 36, 40];
+
+        // Find the closest week
+        let closestWeek = availableWeeks.reduce((prev, curr) => {
+            return (Math.abs(curr - weeksPregnant) < Math.abs(prev - weeksPregnant) ? curr : prev);
+        });
+
+        document.getElementById("weekNumber").textContent = closestWeek;
+
+        const fetalDescriptions = {
+            4: "At week 4, the embryo is the size of a poppy seed.",
+            8: "At week 8, the baby is starting to look more human.",
+            16: "At week 16, the baby is growing and developing muscles.",
+            20: "At week 20, the baby’s gender is visible, and their movements can be felt.",
+            24: "At week 24, the baby’s lungs are developing, and they may respond to sound.",
+            28: "At week 28, the baby is starting to gain weight and develop a fat layer.",
+            32: "At week 32, the baby is getting chubbier and stronger.",
+            36: "At week 36, the baby is ready for birth, and the lungs are nearly fully developed.",
+            40: "At week 40, the baby is fully developed and ready for delivery!"
+        };
+
+        // Display the description
+        document.getElementById("fetalDescription").textContent = fetalDescriptions[closestWeek] || "Growing well!";
+
+        // Image logic based on the week
+        const images = {
+            4: "/images/week4.jpeg", // Ensure the path is correct and the image is present
+            8: "/images/week8.jpeg",
+            16: "/images/week16.jpeg",
+            20: "/images/week20.jpeg",
+            24: "/images/week24.jpeg",
+            28: "/images/week28.jpeg",
+            32: "/images/week32.jpeg",
+            36: "/images/week36.jpeg",
+            40: "/images/week40.jpeg"
+        };
+
+        // Display the image based on the week
+        document.getElementById("weekImage").src = images[closestWeek] || "";
+
+      });
+    </script>
+
+    <!-- Navigation Bar -->
+    <div class="button-container">
+        <a href="1page.html">
+            <button class="button">
+                <ion-icon name="home-outline"></ion-icon>
+            </button>
+        </a>
+
+        <a href="services.html">
+            <button class="button">
+                <ion-icon name="medkit-outline"></ion-icon>
+            </button>
+        </a>
+
+        <a href="shopping.html">
+            <button class="button">
+                <ion-icon name="cart-outline"></ion-icon>
+            </button>
+        </a>
+
+        <a href="last.html">
+            <button class="button">
+                <ion-icon name="person-outline"></ion-icon>
+            </button>
+        </a>
+    </div>
+
+    <!-- Load Ionicons -->
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons/ionicons.js"></script>
+</body>
+</html>

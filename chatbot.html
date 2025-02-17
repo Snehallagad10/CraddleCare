@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+       
+
+  .chat-card {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .chat-header {
+    background: #ef3167;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .chat-body  {
+  
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+
+  .chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+
+  .chat-footer button {
+    padding: 10px;
+    margin-left: 10px;
+    background: #ef3167;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .user-chat-box, .ai-chat-box {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+    word-wrap: break-word;
+}
+
+.user-chat-box {
+    align-self: flex-end;
+    background: #F2C1BD;
+    color: black;
+    text-align: right;
+}
+
+.ai-chat-box {
+    align-self: flex-start;
+    background: #f1f1f1;
+    color: black;
+}
+
+/* Remove AI and User text */
+.user-chat-box img, .ai-chat-box img {
+    display: none;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="chat-card">
+        <div class="chat-header">
+          <h2>Chatbot</h2>
+        </div>
+        <div class="chat-body chat-container">
+            <p>Hello, how can I assist you today?</p>
+        </div>
+        <div class="chat-footer">
+          <input id="prompt" placeholder="Type your message..." type="text">
+          <button id="submit">Send</button>
+        </div>
+      </div>
+    <script src="chatbot.js"></script>
+</body>
+</html>

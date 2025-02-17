@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Pregnancy Essentials Shopping</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #F6E6D0; }
+        .container { max-width: 900px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .card { width: 250px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 15px; text-align: center; }
+        .card img { width: 100px; height: auto; margin-bottom: 10px; }
+        .btn { background-color: #ff4081; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background-color: #e60073; }
+    </style>
+
+
+<style>
+   /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background-color: beige;
+}
+
+/* Fixed Header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px; /* Adjust height if needed */
+    background: #F5347F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    border-radius: 0;
+}
+
+/* Hospital Container */
+.hospital-container {
+    position: fixed; /* Keep hospitals fixed */
+    top: 100px; /* Below header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Hospital Card */
+.hospital-card {
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 180px;
+}
+
+/* Hospital Images */
+.hospital-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+}
+
+/* Scrolling Content */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 60px; /* Adjust so it touches the header */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Shopping Cards */
+/* Ensure all cards have the same height */
+.card {
+    width: 250px;
+    height: 400px; /* Set a fixed height */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures even spacing */
+}
+
+/* Adjust Image Size */
+.card img {
+    width: 100%;
+    height: 290px; /* Set a fixed height for consistency */
+    object-fit: cover; /* Ensures the image scales properly */
+    border-radius: 8px;
+}
+
+/* Text and Button Wrapper */
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Shopping Buttons */
+.btn {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #e60073;
+}
+
+/* Fixed Bottom Navigation */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color:#F5347F;
+    padding: 10px 0;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Navigation Buttons */
+.button {
+    font-size: 24px;
+    color: rgb(221, 203, 203);
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button ion-icon {
+    font-size: 32px;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="header">
+    <h1 >Craddle Care</h1>
+    </div>
+
+
+    
+    <h2>Pregnancy Essentials Shopping</h2>
+    <div class="container">
+        <div class="card">
+            <img src="/images/dairy products.jpg" alt="Dairy Products">
+            <h3>Dairy Products</h3>
+            <a class="btn" href="https://blinkit.com/s/?q=dairy%20products" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="/images/icecreams.jpg" alt="Food Cravings">
+            <h3>Food Cravings</h3>
+            <a class="btn" href="https://blinkit.com/s/?q=amul%20sugar%20free%20icecream" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="/images/gifting.jpg" alt="Baby & Mom Gifting">
+            <h3>Baby & Mom Gifting</h3>
+            <a class="btn" href="https://www.zeptonow.com/cn/baby-care/baby-mom-gifting/cid/0118c4f5-750c-4929-a734-b4ef454e265b/scid/67e4dc8d-b2dc-4ae3-bf90-ff00ea1d5149" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="images/babyfood.jpg" alt="Baby Food">
+            <h3>Baby Food</h3>
+            <a class="btn" href="https://blinkit.com/cn/baby-care/baby-food/cid/7/1590" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="/images/healthysnacks.jpg" alt="Healthy Snacks">
+            <h3>Healthy Fruits</h3>
+            <a class="btn" href="https://blinkit.com/s/?q=healthy%20fruit" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="/images/babyskincare.jpg" alt="Personal Care Products">
+            <h3>Baby Skin & Hair Care</h3>
+            <a class="btn" href="https://www.zeptonow.com/cn/baby-care/baby-skin-hair-care/cid/0118c4f5-750c-4929-a734-b4ef454e265b/scid/3b386054-f215-4dfb-97f1-ac2a4c1d369e" target="_blank">Buy Now</a>
+        </div>
+        <div class="card">
+            <img src="/images/medicines.jpg" alt="Medicines">
+            <h3>Medicines</h3>
+            <a class="btn" href="https://pharmeasy.in/online-medicine-order/location/city/mumbai-1" target="_blank">Buy Now</a>
+        </div>
+    </div>
+    
+
+
+    
+    <!-- Navigation Bar -->
+    <div class="button-container">
+        <a href="1page.html">
+            <button class="button">
+                <ion-icon name="home-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="services.html">
+            <button class="button">
+                <ion-icon name="medkit-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="shopping.html">
+            <button class="button">
+                <ion-icon name="cart-outline"></ion-icon>
+            </button>
+        </a>
+    
+        <a href="last.html">
+            <button class="button">
+                <ion-icon name="person-outline"></ion-icon>
+            </button>
+        </a>
+    </div>
+    
+<!-- Load Ionicons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.5.2/ionicons.js"></script>
+
+</body>
+</html>
