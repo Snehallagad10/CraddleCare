@@ -58,12 +58,28 @@
             background-color: #FF69B4;
         }
 
-        /* Responsive adjustments (optional) */
-        @media (max-width: 450px) {
-            .container {
-                width: 90%; /* Adjust container width on smaller screens */
-            }
-        }
+        .success-message {
+    position: relative; /* Relative to the container */
+    margin-top: 20px; /* Space below the form */
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%; /* Full width inside container */
+    display: none; /* Initially hidden */
+}
+
+@media (max-width: 600px) {
+    .success-message {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+
+        
     </style>
 </head>
 <body>
@@ -101,38 +117,41 @@
     </div>
 
     <script>
-        document.getElementById('user-info-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+       document.getElementById('user-info-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const dob = document.getElementById('dob').value;
+    const address = document.getElementById('address').value;
+    const pincode = document.getElementById('pincode').value;
+    const bloodGroup = document.getElementById('blood-group').value;
+
+    // Save user details in localStorage
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userLMP', dob);
+    localStorage.setItem('userAddress', address);
+    localStorage.setItem('userPincode', pincode);
+    localStorage.setItem('userBloodGroup', bloodGroup);
+
+    // Create success message inside the container
+    let successMessage = document.getElementById('success-message');
+    if (!successMessage) {
+        successMessage = document.createElement('div');
+        successMessage.id = 'success-message';
+        successMessage.classList.add('success-message');
+        successMessage.textContent = 'Details saved successfully! Redirecting...';
+        document.querySelector('.container').appendChild(successMessage);
+    }
     
-            const name = document.getElementById('name').value;
-            const dob = document.getElementById('dob').value;
-            const address = document.getElementById('address').value;
-            const pincode = document.getElementById('pincode').value;
-            const bloodGroup = document.getElementById('blood-group').value;
-    
-            // Save user details in localStorage
-            localStorage.setItem('userName', name);
-            localStorage.setItem('userLMP', dob);
-            localStorage.setItem('userAddress', address);
-            localStorage.setItem('userPincode', pincode);
-            localStorage.setItem('userBloodGroup', bloodGroup);
-    
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.textContent = 'Details saved successfully! Redirecting...';
-            successMessage.style.padding = '15px';
-            successMessage.style.marginTop = '20px';
-            successMessage.style.backgroundColor = '#28a745';
-            successMessage.style.color = 'white';
-            successMessage.style.borderRadius = '5px';
-            successMessage.style.textAlign = 'center';
-            document.body.appendChild(successMessage);
-    
-            // Redirect to 1page.html after a delay
-            setTimeout(function() {
-                window.location.href = '1page.html';
-            }, 2000); // Wait for 2 seconds before redirecting
-        });
+    successMessage.style.display = 'block';
+
+    // Redirect after delay
+    setTimeout(function() {
+        window.location.href = '1page.html';
+    }, 2000);
+});
+ // Wait for 2 seconds before redirecting
+     
     </script>
     
 </body>
