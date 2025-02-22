@@ -10,8 +10,7 @@ body {
     background-color: beige;
   }
   .profile-container {
-    width: 100%;
-    max-width: 400px;
+    
     margin: 20px auto;
     background: beige;
     border-radius: 20px;
