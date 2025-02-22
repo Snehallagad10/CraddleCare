@@ -3,25 +3,35 @@
 <head>
     <title>Cradle Care - User Details</title>
     <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
+      body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4;
+    margin: 0;
+}
 
-        .container {
-            height: 90%;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            width: 400px; /* Adjust as needed */
-        }
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Make it adaptive */
+    max-width: 400px; /* Prevent it from getting too wide */
+    text-align: center;
+}
 
+/* Responsive Adjustments */
+@media (max-height: 700px) { 
+    .container {
+        margin-top: 20px; /* Adjust margin for small screen heights */
+        margin-bottom: 20px;
+    }
+}
+
+        
         .form-group { /* New class for form groups */
             margin-bottom: 20px; /* Consistent spacing */
         }
