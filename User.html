@@ -18,17 +18,22 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Make it adaptive */
-   height: 70%;
+    width: 90%; /* Adjusts width for mobile */
+    max-width: 400px; 
     text-align: center;
 }
 
 /* Responsive Adjustments */
-@media (max-height: 700px) { 
-    .container {
-        margin-top: 20px; /* Adjust margin for small screen heights */
-        margin-bottom: 20px;
-    }
+@media (max-width: 600px) {
+  .container {
+      padding: 20px;
+      width: 95%;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], button {
+      font-size: 14px;
+      padding: 10px;
+  }
 }
 
         
