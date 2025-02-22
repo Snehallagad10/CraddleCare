@@ -1,32 +1,13 @@
 /* Center the form on the page */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Ensure full viewport height */
-  margin: 0;
-  background-color: #f0f0f0;
-}
 
 /* Container */
-.container {
-  width: 400px; /* Fixed width for the signup form */
-  height: auto; /* Allow for the content to adjust the height */
-  background: #F8F9FD;
-  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
-  border-radius: 40px;
-  padding: 25px 35px;
-  border: 5px solid rgb(255, 255, 255);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
-  margin: 0 auto; /* Center the container */
-}
 
 /* Heading */
 .heading {
   text-align: center;
   font-weight: 900;
   font-size: 30px;
-  color: rgb(16, 137, 211);
+  color: rgb(211, 16, 156);
 }
 
 /* Form */
@@ -58,7 +39,7 @@ body {
 /* Focus Styling */
 .form .input:focus {
   outline: none;
-  border-inline: 2px solid #12B1D1;
+  border-inline: 2px solid #f2acd8;
 }
 
 /* Forgot Password */
@@ -70,7 +51,7 @@ body {
 
 .form .forgot-password a {
   font-size: 11px;
-  color: #0099ff;
+  color: #ff007b;
   text-decoration: none;
 }
 
@@ -79,65 +60,71 @@ body {
   display: block;
   width: 100%;
   font-weight: bold;
-  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
-  color: white;
+  background: pink;
+  color: rgb(7, 6, 6);
   padding-block: 15px;
   margin: 20px auto;
   border-radius: 20px;
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  
   border: none;
   transition: all 0.2s ease-in-out;
 }
 
 /* Button Hover Effects */
 .form .login-button:hover {
-  transform: scale(1.03);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+  background-color: #ff007b;
+  color: white;
 }
 
-.form .login-button:active {
-  transform: scale(0.95);
-  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
-}
-
-/* Social Accounts Section */
-.social-account-container {
-  margin-top: 25px;
-}
-
-.social-account-container .title {
-  display: block;
-  text-align: center;
-  font-size: 10px;
-  color: rgb(170, 170, 170);
-}
-
-.social-account-container .social-accounts {
-  width: 100%;
+body {
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 5px;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
 }
 
-/* Social Buttons Hover Effects */
-.social-account-container .social-accounts .social-button:hover {
-  transform: scale(1.2);
-}
-
-.social-account-container .social-accounts .social-button:active {
-  transform: scale(0.9);
-}
-
-/* Agreement */
-.agreement {
-  display: block;
+.container {
+  width: 90%; /* Adjusts width for mobile */
+  max-width: 400px; /* Prevents it from getting too large on desktops */
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 15px;
 }
 
-.agreement a {
-  text-decoration: none;
-  color: #0099ff;
-  font-size: 9px;
+/* Ensure input fields and buttons are responsive */
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  .container {
+      padding: 20px;
+      width: 95%;
+  }
+
+  input[type="text"], input[type="email"], input[type="password"], button {
+      font-size: 14px;
+      padding: 10px;
+  }
 }
